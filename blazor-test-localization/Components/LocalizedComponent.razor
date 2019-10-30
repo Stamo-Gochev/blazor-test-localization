@@ -1,0 +1,49 @@
+﻿@using  System.Globalization
+@using Microsoft.Extensions.Localization
+
+@inject NavigationManager NavigationManager
+
+<h3>LocalizedComponent</h3>
+
+<h2>title: @Title</h2>
+<h2>localizer: @Localizer["key1"]</h2>
+
+<h2>@DateTime.Now</h2>
+
+
+<h3>Select your language</h3>
+
+<select @onchange="OnSelected">
+    <option>Select...</option>
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+</select>
+
+@code{
+    private double textNumber;
+
+    private void OnSelected(ChangeEventArgs e)
+    {
+        var culture = (string)e.Value;
+        var uri = new Uri(NavigationManager.Uri)
+            .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+        var query = $"?culture={Uri.EscapeDataString(culture)}&" +
+            $"redirectUri={Uri.EscapeDataString(uri)}";
+
+
+        CultureInfo.CurrentCulture = new CultureInfo(culture);
+        CultureInfo.CurrentUICulture = new CultureInfo(culture);
+        System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+        System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
+
+
+        System.Globalization.CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(culture);;
+        System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(culture);;
+
+        @*NavigationManager.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);*@
+
+        StateHasChanged();
+
+    }
+}
+
