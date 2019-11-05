@@ -1,6 +1,11 @@
 ﻿@page "/"
 @using blazor_test_localization.Components
+@using Microsoft.Extensions.Localization
+
+@inject IStringLocalizer<Index>  Localizer
 
 <h1>Hello, world!</h1>
+
+<h1>localizer: @Localizer["key1"]</h1>
 
 <LocalizedComponent></LocalizedComponent>
