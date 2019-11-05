@@ -14,11 +14,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\Components\LocalizedComponent.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LocalizedComponent.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Components\LocalizedComponent.bg-BG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Components\LocalizedComponent.resx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Components\LocalizedComponent.bg-BG.resx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizedComponent.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Components\LocalizedComponent.fr.resx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
