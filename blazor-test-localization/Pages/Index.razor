@@ -2,7 +2,6 @@
 @using blazor_test_localization.Components
 @using Microsoft.Extensions.Localization
 @using System.Globalization
-@using  CustomComponents
 
 @inject NavigationManager NavigationManager
 @inject IStringLocalizer<Index>  Localizer
@@ -11,9 +10,7 @@
 
 <LocalizedComponent></LocalizedComponent>
 
-
-<CustomLocalizedComponent></CustomLocalizedComponent>
-
+<CustomRazorComponents.Components.CustomLocalizedComponent></CustomRazorComponents.Components.CustomLocalizedComponent>
 
 <select @onchange="OnSelected">.
     <option>Select...</option>

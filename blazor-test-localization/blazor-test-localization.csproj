@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomComponents\CustomComponents.csproj" />
+    <ProjectReference Include="..\CustomRazorComponents\CustomRazorComponents.csproj" />
   </ItemGroup>
 
 </Project>
