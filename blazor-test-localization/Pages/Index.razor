@@ -2,18 +2,20 @@
 @using blazor_test_localization.Components
 @using Microsoft.Extensions.Localization
 @using System.Globalization
+@using  CustomComponents
 
 @inject NavigationManager NavigationManager
 @inject IStringLocalizer<Index>  Localizer
-
-<h1>Hello, world!</h1>
 
 <h1>localizer: @Localizer["key1"]</h1>
 
 <LocalizedComponent></LocalizedComponent>
 
 
-<select @onchange="OnSelected">
+<CustomLocalizedComponent></CustomLocalizedComponent>
+
+
+<select @onchange="OnSelected">.
     <option>Select...</option>
     <option value="en">English</option>
     <option value="fr">Français</option>

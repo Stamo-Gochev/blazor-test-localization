@@ -1,16 +1,8 @@
 ﻿@using  System.Globalization
-@using Microsoft.Extensions.Localization
 
-@*@inject NavigationManager NavigationManager*@
+<h1>internal localized component</h1>
 
-<h3>LocalizedComponent</h3>
-
-<h2>title: @Title</h2>
 <h2>localizer: @Localizer["key1"]</h2>
 <h2>resx file: @blazor_test_localization.Resources.Components.LocalizedComponent.key1</h2>
 
-<h2>@DateTime.Now</h2>
-
-
-<h3>Select your language</h3>
-
+<h3>Date: @DateTime.Now</h3>
