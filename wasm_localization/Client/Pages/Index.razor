@@ -1,7 +1,47 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+@using System.Globalization
 
-Welcome to your new app.
+@using Microsoft.Extensions.Localization
+@using System.Globalization
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@inject NavigationManager NavigationManager
+
+
+
+<CustomRazorComponents.Components.CustomLocalizedComponent></CustomRazorComponents.Components.CustomLocalizedComponent>
+
+<select @onchange="OnSelected">
+    .
+    <option>Select...</option>
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="bg-BG">Bulgarian</option>
+</select>
+
+@code{
+    private double textNumber;
+
+    private void OnSelected(ChangeEventArgs e)
+    {
+        var culture = (string)e.Value;
+        var uri = new Uri(NavigationManager.Uri)
+            .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+        var query = $"?culture={Uri.EscapeDataString(culture)}&" +
+            $"redirectUri={Uri.EscapeDataString(uri)}";
+
+
+        CultureInfo.CurrentCulture = new CultureInfo(culture);
+        CultureInfo.CurrentUICulture = new CultureInfo(culture);
+        System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+        System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
+
+
+        System.Globalization.CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(culture); ;
+        System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(culture); ;
+
+        NavigationManager.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
+
+        StateHasChanged();
+    }
+}

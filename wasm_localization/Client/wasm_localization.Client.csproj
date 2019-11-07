@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.1.0-preview2.19528.8" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CustomRazorComponents\CustomRazorComponents.csproj" />
     <ProjectReference Include="..\Shared\wasm_localization.Shared.csproj" />
   </ItemGroup>
 
