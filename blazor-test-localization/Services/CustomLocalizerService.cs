@@ -6,7 +6,19 @@ namespace blazor_test_localization.Services
     {
         public override string GetString(string key)
         {
-            return "custom localization |" + base.GetString(key);
+            var result = GetStringFromResource(key);
+            return $"custom localization | custom override {result} " + base.GetString(key);
+        }
+
+        public string GetStringFromResource(string key)
+        {
+            // var result = blazor_test_localization.Resources.Components.CustomLocalizedComponent.ResourceManager.GetString(key,
+            //     blazor_test_localization.Resources.Components.CustomLocalizedComponent.Culture
+            // );
+
+            // return result;
+
+            return " custom resx |";
         }
     }
 }
