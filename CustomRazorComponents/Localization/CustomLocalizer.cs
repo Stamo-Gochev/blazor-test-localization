@@ -8,7 +8,11 @@ namespace CustomRazorComponents.Localization
     {
         public virtual string GetString(string key)
         {
-            return "default custom localizer";
+            var result = CustomRazorComponents.Resources.Components.CustomLocalizedComponent.ResourceManager.GetString(key,
+                CustomRazorComponents.Resources.Components.CustomLocalizedComponent.Culture
+            );
+
+            return "default localizer" + result;
         }
     }
 }
