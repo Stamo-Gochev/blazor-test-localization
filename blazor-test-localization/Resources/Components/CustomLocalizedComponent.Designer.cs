@@ -39,7 +39,7 @@ namespace blazor_test_localization.Resources.Components {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CustomRazorComponents.Resources.Components.CustomLocalizedComponent", typeof(CustomLocalizedComponent).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("blazor_test_localization.Resources.Components.CustomLocalizedComponent", typeof(CustomLocalizedComponent).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
