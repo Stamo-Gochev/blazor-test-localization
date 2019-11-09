@@ -38,8 +38,6 @@ namespace blazor_test_localization
 
             services.AddSingleton(typeof(IStringLocalizer<blazor_test_localization.Resources.Components.LocalizedComponent>), typeof(StringLocalizer<blazor_test_localization.Resources.Components.LocalizedComponent>));
 
-            // services.AddSingleton(typeof(ICustomLocalizer), typeof(CustomLocalizer));
-            services.AddSingleton(typeof(ICustomLocalizer), typeof(CustomLocalizerService));
 
             services.Configure<RequestLocalizationOptions>(
                 opts =>
@@ -64,6 +62,11 @@ namespace blazor_test_localization
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
 
+            services.AddCustomRazorComponents();
+
+            // services.AddSingleton(typeof(ICustomLocalizer), typeof(CustomLocalizer));
+            // order matters
+            services.AddSingleton(typeof(ICustomLocalizer), typeof(CustomLocalizerService));
 
         }
 
