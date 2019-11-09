@@ -13,6 +13,9 @@ using blazor_test_localization.Data;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Localization;
+using CustomRazorComponents.Localization;
+using blazor_test_localization.Services;
 
 namespace blazor_test_localization
 {
@@ -32,6 +35,11 @@ namespace blazor_test_localization
             services.AddControllers();
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            services.AddSingleton(typeof(IStringLocalizer<blazor_test_localization.Resources.Components.LocalizedComponent>), typeof(StringLocalizer<blazor_test_localization.Resources.Components.LocalizedComponent>));
+
+            // services.AddSingleton(typeof(ICustomLocalizer), typeof(CustomLocalizer));
+            services.AddSingleton(typeof(ICustomLocalizer), typeof(CustomLocalizerService));
 
             services.Configure<RequestLocalizationOptions>(
                 opts =>

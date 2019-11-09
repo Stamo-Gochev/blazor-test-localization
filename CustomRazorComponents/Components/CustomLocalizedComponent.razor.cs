@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using System.Threading.Tasks;
+using CustomRazorComponents.Localization;
 
 namespace CustomRazorComponents.Components
 {
     public partial class CustomLocalizedComponent : ComponentBase
     {
-        //[Inject]
-        //public IStringLocalizer<CustomLocalizedComponent> Localizer { get; set; }
+        [Inject]
+        public IStringLocalizer<CustomLocalizedComponent> Localizer { get; set; }
         //public IStringLocalizer Localizer { get; set; }
 
         public string Title { get; set; }
 
         protected override void OnInitialized()
         {
-
             base.OnInitialized();
         }
 
