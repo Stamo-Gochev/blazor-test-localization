@@ -6,7 +6,7 @@ namespace blazor_test_localization.Services
     {
         public override string GetString(string key)
         {
-            return "custom localization";
+            return "custom localization |" + base.GetString(key);
         }
     }
 }

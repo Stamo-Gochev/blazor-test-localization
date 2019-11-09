@@ -62,12 +62,12 @@ namespace blazor_test_localization
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
 
-            // services.AddCustomRazorComponents();
+            services.AddCustomRazorComponents();
 
             // services.AddSingleton(typeof(ICustomLocalizer), typeof(CustomLocalizer));
             // order matters
             services.AddSingleton(typeof(ICustomLocalizer), typeof(CustomLocalizerService));
-            services.AddCustomRazorComponents();
+            // services.AddCustomRazorComponents();
 
         }
 

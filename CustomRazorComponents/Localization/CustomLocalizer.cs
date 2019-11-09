@@ -12,7 +12,7 @@ namespace CustomRazorComponents.Localization
                 CustomRazorComponents.Resources.Components.CustomLocalizedComponent.Culture
             );
 
-            return "default localizer" + result;
+            return "default localizer |" + result;
         }
     }
 }
