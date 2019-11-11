@@ -2,11 +2,20 @@
 @using CustomRazorComponents.Localization
 @inject ICustomLocalizer CustomLocalizerInstance
 
+<br />
 <h1>external localized component</h1>
 
 <h2>resx file: @CustomRazorComponents.Resources.Components.CustomLocalizedComponent.key1</h2>
 
 <h2>Date: @DateTime.Now</h2>
 
-<h1>@CustomLocalizerInstance.GetString("key1")</h1>
+<br />
+<br />
+<h1>strings:</h1>
+<h2>@CustomLocalizerInstance.GetString("key1")</h2>
+
+<br />
+
+<h1>by key</h1>
+<h2>@CustomLocalizerInstance["key1"]</h2>
 

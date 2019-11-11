@@ -1,4 +1,5 @@
 using CustomRazorComponents.Localization;
+using System;
 
 namespace blazor_test_localization.Services
 {
@@ -18,5 +19,19 @@ namespace blazor_test_localization.Services
 
             return result;
         }
+
+        public override string this[string name]
+        {
+            get
+            {
+                if (name == null)
+                {
+                    throw new ArgumentNullException(nameof(name));
+                }
+
+                return GetString(name);
+            }
+        }
+
     }
 }
